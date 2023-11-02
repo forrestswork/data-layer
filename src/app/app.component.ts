@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {PostService} from 'data-store';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'data-layer';
+  constructor(private postService: PostService) {
+    postService.entities$.subscribe(console.log);
+    postService.getAll();
+  }
 }
